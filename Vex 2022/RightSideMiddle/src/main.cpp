@@ -96,7 +96,7 @@ void autonomous(void)
 
   driveTrain.turnToRotation(-88 , deg, 100, velocityUnits::pct, true);
 
-  smoothDrive (-12, 100);
+  smoothDrive (-15, 100);
 
   BLift.spinToPosition(-485, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
