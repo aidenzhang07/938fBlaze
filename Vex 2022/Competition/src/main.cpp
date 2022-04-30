@@ -16,7 +16,7 @@
 // BR                   motor         4               
 // BL                   motor         21              
 // BLift                motor         14              
-// Conveyer             motor         16              
+// Conveyer             motor         18              
 // ML                   motor_group   6, 7            
 // LimitSwitchC         limit         C               
 // LatchPneumatic       digital_out   B               
@@ -72,28 +72,41 @@ void autonomous(void)
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
-  
+  BLift.setPosition(0, vex::rotationUnits (deg));
+
+  driveTrain.setRotation(0, vex::rotationUnits (deg));
+
   autonLatchOpen(false);
 
   smoothDrive(25, 100);
   
-  driveTrain.turnToRotation(-43, deg, 100, velocityUnits::pct, true);
+  driveTrain.turnToRotation(-45.25, deg, 100, velocityUnits::pct, true);
   
   smoothDrive(46, 100);
-
+ 
   autonLatchClose(true);
 
-  ML.spinFor(150, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+  ML.setStopping(hold);
 
-  smoothDrive(-40, 100);
+  ML.spinToPosition(100, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
-  BLift.spinFor(-1000, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+  smoothDrive(-43, 100);
 
-  driveTrain.turnToRotation(-85 , deg, 100, velocityUnits::pct, true);
+  BLift.spinToPosition(-985, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
-  smoothDrive (-24, 100);
+  driveTrain.turnToRotation(-88 , deg, 100, velocityUnits::pct, true);
 
-  BLift.spinFor(650, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+  smoothDrive (-12, 100);
+
+  BLift.spinToPosition(-485, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+
+  ML.spinToPosition(200, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+
+  autonRingLiftOn (75, true);
+
+  wait (1500, msec);
+
+  autonRingLiftOff ();
 }
 
 /*---------------------------------------------------------------------------*/
