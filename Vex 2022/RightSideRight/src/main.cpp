@@ -72,39 +72,37 @@ void autonomous(void)
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
-  BLift.setPosition(0, vex::rotationUnits (deg));
 
+  ML.setPosition(0, vex::rotationUnits (deg));
+
+  BL.setPosition(0, vex::rotationUnits (deg));
   driveTrain.setRotation(0, vex::rotationUnits (deg));
 
-  autonLatchOpen(false);
+  autonLatchOpen (false);
 
-  smoothDrive(25, 100);
-  
-  driveTrain.turnToRotation(-45.25, deg, 100, velocityUnits::pct, true);
-  
-  smoothDrive(46, 100);
- 
-  autonLatchClose(true);
+  smoothDrive (54, 100);
 
-  ML.setStopping(hold);
+  autonLatchClose (false);
 
   ML.spinToPosition(100, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
-  smoothDrive(-43, 100);
+  smoothDrive (-6, 100);
 
-  BLift.spinToPosition(-985, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+  BLift.spinToPosition(-990, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
-  driveTrain.turnToRotation(-88 , deg, 100, velocityUnits::pct, true);
+  driveTrainLeft.spinFor (-500, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
-  smoothDrive (-15, 100);
+  smoothDrive (-12, 100);
 
-  BLift.spinToPosition(-485, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+  BLift.spinToPosition(-500, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
-  ML.spinToPosition(200, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+  ML.spinToPosition(200,vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
   autonRingLiftOn (75, true);
 
-  wait (1500, msec);
+  wait (1000, msec);
+
+  driveTrain.turnToRotation (85, vex::rotationUnits (deg), 50, vex::velocityUnits (pct), true);
 
   autonRingLiftOff ();
 }
