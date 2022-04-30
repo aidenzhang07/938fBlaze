@@ -90,7 +90,7 @@ void autonomous(void)
 
   ML.spinToPosition(100, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
-  smoothDrive(-46, 100);
+  smoothDrive(-43, 100);
 
   BLift.spinToPosition(-985, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
@@ -98,7 +98,7 @@ void autonomous(void)
 
   smoothDrive (-15, 100);
 
-  BLift.spinToPosition(-470, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+  BLift.spinToPosition(-485, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
   ML.spinToPosition(200, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
