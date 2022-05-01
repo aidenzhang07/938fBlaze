@@ -74,7 +74,6 @@ void autonomous(void)
   // ..........................................................................
 
   ML.setPosition(0, vex::rotationUnits (deg));
-
   BL.setPosition(0, vex::rotationUnits (deg));
   driveTrain.setRotation(0, vex::rotationUnits (deg));
 
@@ -83,6 +82,8 @@ void autonomous(void)
   smoothDrive (54, 100);
 
   autonLatchClose (false);
+
+  ML.setStopping(hold);
 
   ML.spinToPosition(100, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
@@ -94,6 +95,8 @@ void autonomous(void)
 
   smoothDrive (-12, 100);
 
+  BLift.setStopping(hold);
+
   BLift.spinToPosition(-500, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
   ML.spinToPosition(200,vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
@@ -102,7 +105,9 @@ void autonomous(void)
 
   wait (1000, msec);
 
-  driveTrain.turnToRotation (85, vex::rotationUnits (deg), 50, vex::velocityUnits (pct), true);
+  driveTrain.turnToRotation (0, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+
+  smoothDrive (-12, 100);
 
   autonRingLiftOff ();
 }
