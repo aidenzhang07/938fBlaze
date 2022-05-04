@@ -11,14 +11,13 @@ brain  Brain;
 controller Controller1 = controller(primary);
 motor FR = motor(PORT2, ratio18_1, true);
 motor FL = motor(PORT3, ratio18_1, false);
-motor BR = motor(PORT4, ratio18_1, true);
+motor BR = motor(PORT13, ratio18_1, true);
 motor BL = motor(PORT21, ratio18_1, false);
-motor BLift = motor(PORT14, ratio18_1, false);
+motor BLift = motor(PORT15, ratio18_1, false);
 motor Conveyer = motor(PORT18, ratio18_1, true);
 motor MLMotorA = motor(PORT6, ratio36_1, false);
-motor MLMotorB = motor(PORT7, ratio36_1, true);
+motor MLMotorB = motor(PORT8, ratio36_1, true);
 motor_group ML = motor_group(MLMotorA, MLMotorB);
-limit LimitSwitchC = limit(Brain.ThreeWirePort.C);
 digital_out LatchPneumatic = digital_out(Brain.ThreeWirePort.B);
 digital_out LiftPneumantic = digital_out(Brain.ThreeWirePort.D);
 

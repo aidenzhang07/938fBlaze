@@ -13,12 +13,11 @@
 // Controller1          controller                    
 // FR                   motor         2               
 // FL                   motor         3               
-// BR                   motor         4               
+// BR                   motor         13              
 // BL                   motor         21              
-// BLift                motor         14              
+// BLift                motor         15              
 // Conveyer             motor         18              
-// ML                   motor_group   6, 7            
-// LimitSwitchC         limit         C               
+// ML                   motor_group   6, 8            
 // LatchPneumatic       digital_out   B               
 // LiftPneumantic       digital_out   D               
 // ---- END VEXCODE CONFIGURED DEVICES ----
@@ -32,7 +31,7 @@ using namespace vex;
 // A global instance of competition
 competition Competition;
 // define your global instances of motors and other devices here
-inertial imu = inertial(vex::PORT17);
+inertial imu = inertial(vex::PORT16);
 motor_group driveTrainLeft = motor_group(FL, BL);
 motor_group driveTrainRight = motor_group(FR, BR);
 smartdrive driveTrain = smartdrive(driveTrainLeft, driveTrainRight, imu, 12.5663706143591, 1, 1, distanceUnits::in, 1.0);
@@ -207,7 +206,7 @@ void usercontrol(void) {
       Screen_Write();
     }
 
-    else if (!Controller1.ButtonUp.pressing())
+            else if (!Controller1.ButtonUp.pressing())
     {
       DirToggling = false;
     }

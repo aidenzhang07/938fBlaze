@@ -11,7 +11,6 @@ extern motor BL;
 extern motor BLift;
 extern motor Conveyer;
 extern motor_group ML;
-extern limit LimitSwitchC;
 extern digital_out LatchPneumatic;
 extern digital_out LiftPneumantic;
 

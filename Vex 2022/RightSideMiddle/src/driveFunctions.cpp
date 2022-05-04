@@ -131,7 +131,7 @@ void RingLift (bool DirToggle, bool ConveyerToggle){
   }
 }
 void BLiftDrive (){
-  if (Controller1.ButtonX.pressing() && !LimitSwitchC) {
+  if (Controller1.ButtonX.pressing()) {
     BLift.spin(forward);
   } else if (Controller1.ButtonB.pressing()) {
     BLift.spin(reverse);
