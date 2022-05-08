@@ -75,37 +75,49 @@ void autonomous(void)
   BL.setPosition(0, vex::rotationUnits (deg));
   driveTrain.setRotation(0, vex::rotationUnits (deg));
 
+  
+
   autonLatchOpen (false);
 
-  smoothDrive (54, 100);
+  driveTrainLeft.spinFor(1440, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), false);
+  driveTrainRight.spinFor(1440, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), false);
 
-  autonLatchClose (false);
+  wait (1390, msec);
+
+  LatchPneumatic = false;
+
+  wait (300, msec);
 
   ML.setStopping(hold);
 
   ML.spinToPosition(150, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
-  smoothDrive (-52, 100);
+  driveTrainLeft.spinFor(-1425, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), false);
+  driveTrainRight.spinFor(-1425, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
-  driveTrain.turnToRotation (-77, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+  driveTrain.turnToRotation (-70, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
-  ML.spinToPosition(500, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+  ML.spinToPosition(550, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
   BLift.setStopping(coast);
 
+  smoothDrive (11, 100);
+
+  BLift.spinToPosition(-1020, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+
+  wait (100, msec);
+
+  smoothDrive (-15, 100);
+
+  wait (400, msec);
+
+  BLift.spinToPosition(-450, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+
   smoothDrive (6, 100);
 
-  BLift.spinToPosition(-1000, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
-
-  smoothDrive (-11, 100);
-
-  BLift.spinToPosition(-500, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
-
-  smoothDrive (4, 100);
-
-  BLift.spinToPosition(-800, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
-
-  BLift.spinToPosition(-475, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
+  //BLift.spinToPosition(-800, vex::rotationUnits (deg), 75, vex::velocityUnits (pct), true);
+ 
+  //BLift.spinToPosition(-460, vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
   ML.spinToPosition(200,vex::rotationUnits (deg), 100, vex::velocityUnits (pct), true);
 
